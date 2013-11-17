@@ -22,7 +22,7 @@ var requireCliAndRun = function(karmaPath) {
   }
 };
 
-resolve('karma', {baseDir: process.cwd()}, function(err, pathToKarma) {
+resolve('karma', {basedir: process.cwd()}, function(err, pathToKarma) {
   // There is a local version, let's use it.
   if (!err) {
     return requireCliAndRun(pathToKarma.replace(/\/lib\/index\.js/, ''));
