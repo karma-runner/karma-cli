@@ -18,9 +18,37 @@ var requireCliAndRun = function(karmaPath) {
   if (process.argv.indexOf('--which') !== -1) {
     console.log(karmaPath);
   } else {
-    require(karmaPath + '/lib/cli').run();
+    var karmaCli = require(karmaPath + '/lib/cli');
+
+    if (karmaCli.run) {
+      karmaCli.run();
+    } else {
+      karmaCliRun(karmaCli, karmaPath);
+    }
   }
 };
+
+
+// TODO(vojta): remove once we don't care about Karma 0.10
+var karmaCliRun = function(karmaCli, karmaPath) {
+  var config = karmaCli.process();
+
+  switch (config.cmd) {
+  case 'start':
+    require(karmaPath + '/lib/server').start(config);
+    break;
+  case 'run':
+    require(karmaPath + '/lib/runner').run(config);
+    break;
+  case 'init':
+    require(karmaPath + '/lib/init').init(config);
+    break;
+  case 'completion':
+    require(karmaPath + '/lib/completion').completion(config);
+    break;
+  }
+};
+
 
 resolve('karma', {basedir: process.cwd()}, function(err, pathToKarma) {
   // There is a local version, let's use it.
