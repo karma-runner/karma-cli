@@ -18,7 +18,7 @@ var requireCliAndRun = function(karmaPath) {
   if (process.argv.indexOf('--which') !== -1) {
     console.log(karmaPath);
   } else {
-    var karmaCli = require(karmaPath + '/lib/cli');
+    var karmaCli = require(path.join(karmaPath, 'lib', 'cli'));
 
     if (karmaCli.run) {
       karmaCli.run();
@@ -35,16 +35,16 @@ var karmaCliRun = function(karmaCli, karmaPath) {
 
   switch (config.cmd) {
   case 'start':
-    require(karmaPath + '/lib/server').start(config);
+    require(path.join(karmaPath, 'lib', 'server')).start(config);
     break;
   case 'run':
-    require(karmaPath + '/lib/runner').run(config);
+    require(path.join(karmaPath, 'lib', 'runner')).run(config);
     break;
   case 'init':
-    require(karmaPath + '/lib/init').init(config);
+    require(path.join(karmaPath, 'lib', 'init')).init(config);
     break;
   case 'completion':
-    require(karmaPath + '/lib/completion').completion(config);
+    require(path.join(karmaPath, 'lib', 'completion')).completion(config);
     break;
   }
 };
@@ -53,13 +53,13 @@ var karmaCliRun = function(karmaCli, karmaPath) {
 resolve('karma', {basedir: process.cwd()}, function(err, pathToKarma) {
   // There is a local version, let's use it.
   if (!err) {
-    return requireCliAndRun(pathToKarma.replace(/\/lib\/index\.js/, ''));
+    return requireCliAndRun(pathToKarma.replace(/(\/|\\)lib(\/|\\)index\.js/, ''));
   }
 
   // We can't load a global one, since NODE_PATH is not defined.
   if (!NODE_PATH) {
     // Let's try a siblink to karma-cli, that is a global module with NVM.
-    var siblinkKarma = path.normalize(__dirname + '/../../karma');
+    var siblinkKarma = path.normalize(path.join(__dirname, '..', '..', 'karma'));
     if (fs.existsSync(siblinkKarma)) {
       return requireCliAndRun(siblinkKarma);
     }
@@ -75,7 +75,7 @@ resolve('karma', {basedir: process.cwd()}, function(err, pathToKarma) {
   var globalKarma;
 
   while (globalPaths.length) {
-    globalKarma = path.normalize(globalPaths.shift() + '/karma');
+    globalKarma = path.normalize(path.join(globalPaths.shift(), 'karma'));
     if (fs.existsSync(globalKarma)) {
       return requireCliAndRun(globalKarma);
     }
