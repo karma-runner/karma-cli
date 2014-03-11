@@ -22,7 +22,9 @@
     "execution"
   ],
   "author": "Vojta Jína <vojta.jina@gmail.com>",
-  "contributors": [],
+  "contributors": [
+    "Brian Hann <emailc0bra@gmail.com>"
+  ],
   "dependencies": {
     "resolve": "~0.5.1"
   },
