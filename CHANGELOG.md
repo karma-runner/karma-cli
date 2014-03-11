@@ -1,3 +1,11 @@
+<a name="v0.0.4"></a>
+### v0.0.4 (2014-03-11)
+
+
+#### Bug Fixes
+
+* Use path.join() to make it run on Windows. ([05346293](http://github.com/karma-runner/karma-cli/commit/053462930de8bcdda800a425d66879df7b5b093f))
+
 <a name="v0.0.3"></a>
 ### v0.0.3 (2013-11-18)
 
