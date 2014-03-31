@@ -3,6 +3,7 @@
 var path = require('path');
 var fs = require('fs');
 var resolve = require('resolve');
+var info = require('../lib/log');
 
 var NODE_PATH = process.env.NODE_PATH;
 
@@ -12,22 +13,6 @@ var NODE_PATH = process.env.NODE_PATH;
 //   - a local module (using `require`, so it will traverse up, looking for `node_modules/karma`),
 //   - a siblink module to karma-cli (that loads the global karma, when using NVM),
 //   - a global module (NODE_PATH)
-
-
-var requireCliAndRun = function(karmaPath) {
-  if (process.argv.indexOf('--which') !== -1) {
-    console.log(karmaPath);
-  } else {
-    var karmaCli = require(path.join(karmaPath, 'lib', 'cli'));
-
-    if (karmaCli.run) {
-      karmaCli.run();
-    } else {
-      karmaCliRun(karmaCli, karmaPath);
-    }
-  }
-};
-
 
 // TODO(vojta): remove once we don't care about Karma 0.10
 var karmaCliRun = function(karmaCli, karmaPath) {
@@ -50,6 +35,21 @@ var karmaCliRun = function(karmaCli, karmaPath) {
 };
 
 
+var requireCliAndRun = function(karmaPath) {
+  if (process.argv.indexOf('--which') !== -1) {
+    info.log(karmaPath);
+  } else {
+    var karmaCli = require(path.join(karmaPath, 'lib', 'cli'));
+
+    if (karmaCli.run) {
+      karmaCli.run();
+    } else {
+      karmaCliRun(karmaCli, karmaPath);
+    }
+  }
+};
+
+
 resolve('karma', {basedir: process.cwd()}, function(err, pathToKarma) {
   // There is a local version, let's use it.
   if (!err) {
@@ -64,9 +64,9 @@ resolve('karma', {basedir: process.cwd()}, function(err, pathToKarma) {
       return requireCliAndRun(siblinkKarma);
     }
 
-    console.error('Cannot find local Karma!\n' +
+    info.fatal('Cannot find local Karma!\n' +
                   '  Please install Karma by `npm install karma --save-dev`.\n' +
-                  '  If you wanna use a global instance, please set NODE_PATH env variable.\n');
+                  '  If you wanna use a global instance, please set NODE_PATH env variable.\n', 1);
     return;
   }
 
@@ -81,6 +81,6 @@ resolve('karma', {basedir: process.cwd()}, function(err, pathToKarma) {
     }
   }
 
-  console.error('Cannot find local Karma!\n' +
-                '  Please install karma by `npm install karma --save-dev`.\n');
+  info.fatal('Cannot find local Karma!\n' +
+                '  Please install karma by `npm install karma --save-dev`.\n', 1);
 });
