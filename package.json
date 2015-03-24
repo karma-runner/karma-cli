@@ -43,7 +43,8 @@
     "karma": "./bin/karma"
   },
   "engines": {
-    "node": "~0.8 || ~0.10"
+    "node":  ">=0.8 <=0.12",
+    "iojs": "~1"
   },
   "version": "0.0.4"
 }
