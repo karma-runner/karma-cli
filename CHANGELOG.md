@@ -1,3 +1,13 @@
+<a name"0.1.0"></a>
+## 0.1.0 (2015-06-26)
+
+
+#### Bug Fixes
+
+* Update node engine versions ([e2059aad](https://github.com/karma-runner/karma-cli/commit/e2059aad), closes [#11](https://github.com/karma-runner/karma-cli/issues/11), [#10](https://github.com/karma-runner/karma-cli/issues/10))
+* return exit code ([0aad62e7](https://github.com/karma-runner/karma-cli/commit/0aad62e7))
+
+
 <a name="v0.0.4"></a>
 ### v0.0.4 (2014-03-11)
 
