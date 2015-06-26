@@ -23,7 +23,11 @@
   ],
   "author": "Vojta Jína <vojta.jina@gmail.com>",
   "contributors": [
-    "Brian Hann <emailc0bra@gmail.com>"
+    "dignifiedquire <dignifiedquire@gmail.com>",
+    "Maksim Ryzhikov <rv.maksim@gmail.com>",
+    "Brian Hann <emailc0bra@gmail.com>",
+    "Robo <hop2deep@gmail.com>",
+    "deepak1556 <hop2deep@gmail.com>"
   ],
   "dependencies": {
     "resolve": "^1.1.6"
