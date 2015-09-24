@@ -32,7 +32,6 @@
   "dependencies": {
     "resolve": "^1.1.6"
   },
-  "peerDependencies": {},
   "devDependencies": {
     "eslint-config-standard": "^3.3.0",
     "grunt": "^0.4.1",
