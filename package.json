@@ -24,9 +24,11 @@
   "author": "Vojta Jína <vojta.jina@gmail.com>",
   "contributors": [
     "dignifiedquire <dignifiedquire@gmail.com>",
+    "Jan Raasch <jan@janraasch.com>",
     "Maksim Ryzhikov <rv.maksim@gmail.com>",
-    "Brian Hann <emailc0bra@gmail.com>",
+    "Friedel Ziegelmayer <dignifiedquire@gmail.com>",
     "Robo <hop2deep@gmail.com>",
+    "Brian Hann <emailc0bra@gmail.com>",
     "deepak1556 <hop2deep@gmail.com>"
   ],
   "dependencies": {
