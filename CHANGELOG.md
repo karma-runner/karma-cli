@@ -1,3 +1,12 @@
+<a name"0.1.1"></a>
+### 0.1.1 (2015-09-27)
+
+
+#### Bug Fixes
+
+* **engines:** use values from karma's engines requirement ([f7c492ce](https://github.com/karma-runner/karma-cli/commit/f7c492ce), closes [#13](https://github.com/karma-runner/karma-cli/issues/13))
+
+
 <a name"0.1.0"></a>
 ## 0.1.0 (2015-06-26)
 
