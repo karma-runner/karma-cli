@@ -28,8 +28,9 @@
     "Maksim Ryzhikov <rv.maksim@gmail.com>",
     "Friedel Ziegelmayer <dignifiedquire@gmail.com>",
     "Robo <hop2deep@gmail.com>",
-    "Brian Hann <emailc0bra@gmail.com>",
-    "deepak1556 <hop2deep@gmail.com>"
+    "Bas Bosman <github@nazgul.nu>",
+    "deepak1556 <hop2deep@gmail.com>",
+    "Brian Hann <emailc0bra@gmail.com>"
   ],
   "dependencies": {
     "resolve": "^1.1.6"
