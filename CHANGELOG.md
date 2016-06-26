@@ -1,3 +1,12 @@
+<a name"1.0.1"></a>
+### 1.0.1 (2016-06-26)
+
+
+#### Features
+
+* add node@6 compatability ([0579338f](https://github.com/karma-runner/karma-cli/commit/0579338f))
+
+
 <a name"1.0.0"></a>
 ## 1.0.0 (2016-05-03)
 
