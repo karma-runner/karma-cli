@@ -15,19 +15,12 @@ module.exports = function (grunt) {
           'CHANGELOG.md'
         ]
       }
-    },
-    eslint: {
-      target: [
-        'bin/karma',
-        'lib/*.js',
-        'gruntfile.js'
-      ]
     }
   })
 
   require('load-grunt-tasks')(grunt)
 
-  grunt.registerTask('default', ['eslint'])
+  grunt.registerTask('default', [])
 
   grunt.registerTask('release', 'Bump the version and publish to NPM.', function (type) {
     grunt.task.run([
