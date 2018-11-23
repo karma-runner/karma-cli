@@ -7,44 +7,11 @@ var info = require('../lib/log')
 
 var NODE_PATH = process.env.NODE_PATH
 
-// This wrapper only resolves which instance of Karma should be run.
-// All the logic is in the main Karma module.
-// The resolving algorithm checks (in this order):
-//   - a local module (using `require`, so it will traverse up, looking for `node_modules/karma`),
-//   - a siblink module to karma-cli (that loads the global karma, when using NVM),
-//   - a global module (NODE_PATH)
-
-// TODO(vojta): remove once we don't care about Karma 0.10
-var karmaCliRun = function (karmaCli, karmaPath) {
-  var config = karmaCli.process()
-
-  switch (config.cmd) {
-    case 'start':
-      require(path.join(karmaPath, 'lib', 'server')).start(config)
-      break
-    case 'run':
-      require(path.join(karmaPath, 'lib', 'runner')).run(config)
-      break
-    case 'init':
-      require(path.join(karmaPath, 'lib', 'init')).init(config)
-      break
-    case 'completion':
-      require(path.join(karmaPath, 'lib', 'completion')).completion(config)
-      break
-  }
-}
-
 var requireCliAndRun = function (karmaPath) {
   if (process.argv.indexOf('--which') !== -1) {
     info.log(karmaPath)
   } else {
-    var karmaCli = require(path.join(karmaPath, 'lib', 'cli'))
-
-    if (karmaCli.run) {
-      karmaCli.run()
-    } else {
-      karmaCliRun(karmaCli, karmaPath)
-    }
+    require(path.join(karmaPath, 'lib', 'cli')).run()
   }
 }
 
