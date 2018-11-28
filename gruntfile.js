@@ -15,6 +15,16 @@ module.exports = function (grunt) {
           'CHANGELOG.md'
         ]
       }
+    },
+    conventionalChangelog: {
+      options: {
+        changelogOpts: {
+          preset: 'angular'
+        }
+      },
+      release: {
+        src: 'CHANGELOG.md'
+      }
     }
   })
 
@@ -26,7 +36,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'npm-contributors',
       'bump-only:' + (type || 'patch'),
-      'changelog',
+      'conventionalChangelog',
       'bump-commit',
       'npm-publish'
     ])
