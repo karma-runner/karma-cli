@@ -1,3 +1,18 @@
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/karma-runner/karma-cli/compare/v1.0.1...v2.0.0) (2018-11-28)
+
+
+### Chores
+
+* update required node version to 6 ([951d247](https://github.com/karma-runner/karma-cli/commit/951d247))
+
+
+### BREAKING CHANGES
+
+* Node versions previous to 6 are no longer supported.
+
+
+
 <a name"1.0.1"></a>
 ### 1.0.1 (2016-06-26)
 
